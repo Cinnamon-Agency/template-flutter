@@ -1,0 +1,62 @@
+name: template_flutter
+description: Cinnamon Agency starter template for Flutter applications
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  ###
+  # DEPENDENCIES
+  ###
+  camera: 0.10.0+1
+  connectivity_plus: 2.3.6+1
+  device_info_plus: 4.1.2
+  dio: 4.0.6
+  flutter_screenutil: 5.5.4
+  flutter_staggered_animations: 1.1.1
+  flutter_svg: 1.1.4
+  get: 4.6.5
+  get_storage: 2.0.3
+  google_fonts: 3.0.1
+  hive: 2.2.3
+  hive_flutter: 1.1.0
+  image_picker: 0.8.5+3
+  intl: 0.17.0
+  logger: 1.1.0
+  package_info_plus: 1.4.3+1
+  path_provider: 2.0.11
+  url_launcher: 6.1.5
+
+  # FIREBASE
+  firebase_core: 1.21.1
+  firebase_auth: 3.7.0
+  cloud_firestore: 3.4.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  ###
+  # DEV DEPENDENCIES
+  ###
+  build_runner: 2.2.0
+  flutter_launcher_icons: 0.10.0
+  flutter_native_splash: 2.2.8
+  hive_generator: 1.1.3
+
+  # Trigger code generation
+  # flutter packages pub run build_runner build --delete-conflicting-outputs
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
