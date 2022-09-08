@@ -21,3 +21,4 @@
     * https://github.com/Cinnamon-Agency/template-nextjs
     * https://github.com/Cinnamon-Agency/template-ios
     * https://github.com/infinum/flutter-dasher
+* Local JSON - final response = await rootBundle.loadString('assets/sample.json');
