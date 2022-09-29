@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'localization.dart';
 import 'pages.dart';
+import 'services/alice_service.dart';
 import 'services/app_lifecycle_service.dart';
 import 'services/device_info_service.dart';
 import 'services/dio_service.dart';
@@ -17,8 +18,10 @@ import 'theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// Initialize [Logger]
-  Get.put(LoggerService());
+  /// Initialize [Logger] and [Alice]
+  Get
+    ..put(LoggerService())
+    ..put(AliceService());
 
   /// Initialize Firebase
   // await Firebase.initializeApp(
@@ -38,7 +41,7 @@ class InitialBinding extends Bindings {
       ..put(AppLifecycleService())
       ..put(DeviceInfoService())
       ..put(DioService())
-      ..put(FirebaseService())
+      // ..put(FirebaseService())
       ..put(HiveService())
       ..put(PackageInfoService())
       ..put(StorageService());
@@ -47,6 +50,7 @@ class InitialBinding extends Bindings {
 
 class CinnamonFlutterTemplateApp extends StatelessWidget {
   final logger = Get.find<LoggerService>();
+  final alice = Get.find<AliceService>().alice;
 
   /// Logs everything using [Logger] package
   void loggingWithLogger(String text, {bool isError = false}) => isError ? logger.e(text) : logger.d(text);
@@ -56,6 +60,7 @@ class CinnamonFlutterTemplateApp extends StatelessWidget {
         /// Size of `Pixel XL`, device the designer uses in his designs on Figma
         designSize: const Size(412, 732),
         builder: (_, __) => GetMaterialApp(
+          navigatorKey: alice.getNavigatorKey(),
           title: 'appName'.tr,
           theme: theme,
           initialRoute: MyRoutes.helloScreen,

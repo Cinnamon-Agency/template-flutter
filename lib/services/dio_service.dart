@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart' hide FormData, Response;
 
+import 'alice_service.dart';
 import 'logger_service.dart';
 
 enum HttpMethod {
@@ -18,16 +19,28 @@ enum HttpMethod {
 
 class DioService extends GetxService {
   final logger = Get.find<LoggerService>();
+  final alice = Get.find<AliceService>().alice;
 
   /// ------------------------
   /// VARIABLES
   /// ------------------------
 
-  late final dio = Dio(
-    BaseOptions(
-      connectTimeout: kDebugMode ? 30000 : 5000,
-    ),
-  );
+  late final Dio dio;
+
+  /// ------------------------
+  /// INIT
+  /// ------------------------
+
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+
+    dio = Dio(
+      BaseOptions(
+        connectTimeout: kDebugMode ? 30000 : 5000,
+      ),
+    )..interceptors.add(alice.getDioInterceptor());
+  }
 
   /// ------------------------
   /// METHODS
