@@ -11,6 +11,7 @@ import 'services/device_info_service.dart';
 import 'services/dio_service.dart';
 import 'services/firebase_service.dart';
 import 'services/hive_service.dart';
+import 'services/location_service.dart';
 import 'services/logger_service.dart';
 import 'services/package_info_service.dart';
 import 'services/storage_service.dart';
@@ -46,6 +47,7 @@ class InitialBinding extends Bindings {
       ..put(HiveService())
       ..put(PackageInfoService())
       ..put(StorageService())
+      ..put(LocationService())
       ..put(ConnectivityService());
   }
 }

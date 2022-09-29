@@ -23,6 +23,7 @@ dependencies:
   flutter_screenutil: 5.5.4
   flutter_staggered_animations: 1.1.1
   flutter_svg: 1.1.4
+  geolocator: 9.0.2
   get: 4.6.5
   get_storage: 2.0.3
   google_fonts: 3.0.1
@@ -31,10 +32,12 @@ dependencies:
   image_picker: 0.8.5+3
   intl: 0.17.0
   just_audio: 0.9.29
+  location: 4.4.0
   logger_fork: 1.2.0
   logger_flutter_fork: 1.2.0
   package_info_plus: 1.4.3+1
   path_provider: 2.0.11
+  permission_handler: 10.0.2
   url_launcher: 6.1.5
   video_player: 2.4.7
 
@@ -57,6 +60,7 @@ dev_dependencies:
 
 dependency_overrides:
   ffi: 2.0.1
+  permission_handler: 10.0.2
 
 # Trigger code generation
 # flutter packages pub run build_runner build --delete-conflicting-outputs
