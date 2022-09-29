@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "errorMessage": "",
+  "countries": [
+    {
+      "name": "Croatia",
+      "capital": "Zagreb",
+      "anthem": "Lijepa naša domovino",
+      "president": "Zoran Milanović",
+      "squareKm": 56594,
+      "callingCode": 385
+    },
+    {
+      "name": "United States of America",
+      "capital": "Washington D.C.",
+      "anthem": "The Star-Spangled Banner",
+      "president": "Joe Biden",
+      "squareKm": 9833520,
+      "callingCode": 1
+    },
+    {
+      "name": "French Republic",
+      "capital": "Paris",
+      "anthem": "La Marseillaise",
+      "president": "Emmanuel Macron",
+      "squareKm": 643801,
+      "callingCode": 33
+    }
+  ]
+}

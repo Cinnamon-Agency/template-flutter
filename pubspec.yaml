@@ -32,6 +32,7 @@ dependencies:
   image_picker: 0.8.5+3
   intl: 0.17.0
   just_audio: 0.9.29
+  loading_animation_widget: 1.2.0+3
   location: 4.4.0
   logger_fork: 1.2.0
   logger_flutter_fork: 1.2.0
@@ -42,9 +43,9 @@ dependencies:
   video_player: 2.4.7
 
   # FIREBASE
-  firebase_core: 1.21.1
-  firebase_auth: 3.7.0
-  cloud_firestore: 3.4.6
+  firebase_core: 1.24.0
+  firebase_auth: 3.11.0
+  cloud_firestore: 3.5.0
 
 dev_dependencies:
   flutter_test:
@@ -88,3 +89,4 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/countries_json.json

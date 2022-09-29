@@ -24,3 +24,10 @@
 * Local JSON - final response = await rootBundle.loadString('assets/sample.json');
 * Alice, logger_flutter
 * ScreenUtil
+
+
+# To-Do
+
+* FirebaseService
+* Document everything
+* Write proper readme

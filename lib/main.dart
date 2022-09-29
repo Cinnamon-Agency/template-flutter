@@ -65,7 +65,7 @@ class CinnamonFlutterTemplateApp extends StatelessWidget {
         designSize: const Size(412, 732),
         builder: (_, __) => GetMaterialApp(
           navigatorKey: alice.getNavigatorKey(),
-          title: 'appName'.tr,
+          onGenerateTitle: (_) => 'appName'.tr,
           theme: theme,
           initialRoute: MyRoutes.helloScreen,
           initialBinding: InitialBinding(),

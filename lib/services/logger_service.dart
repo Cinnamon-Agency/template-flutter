@@ -60,7 +60,7 @@ class LoggerService extends GetxService {
   void logJson(String data, {bool isError = false}) {
     final object = json.decode(data);
     final prettyString = const JsonEncoder.withIndent('  ').convert(object);
-    isError ? logger.e(prettyString) : logger.i(prettyString);
+    isError ? logger.e(prettyString) : logger.v(prettyString);
   }
 
   /// Opens [Logger] screen
