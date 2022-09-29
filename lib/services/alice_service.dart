@@ -9,17 +9,8 @@ class AliceService extends GetxService {
   late final alice = Alice();
 
   /// ------------------------
-  /// INIT
-  /// ------------------------
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  /// ------------------------
   /// METHODS
   /// ------------------------
 
-  void someMethod() {}
+  void openAlice() => alice.showInspector();
 }

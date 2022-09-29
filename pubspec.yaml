@@ -30,7 +30,8 @@ dependencies:
   hive_flutter: 1.1.0
   image_picker: 0.8.5+3
   intl: 0.17.0
-  logger: 1.1.0
+  logger_fork: 1.2.0
+  logger_flutter_fork: 1.2.0
   package_info_plus: 1.4.3+1
   path_provider: 2.0.11
   url_launcher: 6.1.5

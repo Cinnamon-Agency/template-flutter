@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
+import 'package:logger_flutter_fork/logger_flutter_fork.dart';
+import 'package:logger_fork/logger_fork.dart';
 
 /// Service which gives access to `logger` and
 /// helper methods to easily log stuff to the console
@@ -10,14 +12,27 @@ class LoggerService extends GetxService {
   /// VARIABLES
   /// ------------------------
 
-  late final logger = Logger(
-    printer: PrettyPrinter(
-      methodCount: 0,
-      errorMethodCount: 3,
-      lineLength: 50,
-      noBoxingByDefault: true,
-    ),
-  );
+  late final Logger logger;
+
+  /// ------------------------
+  /// INIT
+  /// ------------------------
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    logger = Logger(
+      printer: PrettyPrinter(
+        methodCount: 0,
+        errorMethodCount: 3,
+        lineLength: 50,
+        noBoxingByDefault: true,
+      ),
+    );
+
+    LogConsole.init();
+  }
 
   /// ------------------------
   /// METHODS
@@ -47,4 +62,7 @@ class LoggerService extends GetxService {
     final prettyString = const JsonEncoder.withIndent('  ').convert(object);
     isError ? logger.e(prettyString) : logger.i(prettyString);
   }
+
+  /// Opens [Logger] screen
+  void openLogger(BuildContext context) => LogConsole.open(context);
 }
