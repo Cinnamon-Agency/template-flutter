@@ -1,6 +1,6 @@
+import 'package:geolocator/geolocator.dart' as geolocator;
 import 'package:get/get.dart';
 import 'package:location/location.dart' as location;
-import 'package:geolocator/geolocator.dart' as geolocator;
 
 import 'logger_service.dart';
 
@@ -141,5 +141,7 @@ class LocationService extends GetxService {
         ..e('$e')
         ..e('--------------------\n');
     }
+
+    return null;
   }
 }

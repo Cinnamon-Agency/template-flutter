@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseService<T> {
   final String collection;
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final T Function(Map<String, dynamic> map) fromMap;
   final Map<String, dynamic> Function(T model) toMap;
+  final firestore = FirebaseFirestore.instance;
 
   FirebaseService(
     this.collection, {
@@ -27,7 +27,6 @@ class FirebaseService<T> {
   Stream<T> streamSingle(String id) => firestore.collection(collection).doc(id).snapshots().map((snap) => fromMap(snap.data()!));
   Stream<List<T>> streamList() {
     final ref = firestore.collection(collection);
-
     return ref.snapshots().map((list) => list.docs.map((doc) => fromMap(doc.data())).toList());
   }
 

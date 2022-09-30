@@ -3,14 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'localization.dart';
-import 'models/country.dart';
 import 'pages.dart';
 import 'services/alice_service.dart';
 import 'services/app_lifecycle_service.dart';
 import 'services/connectivity_service.dart';
 import 'services/device_info_service.dart';
 import 'services/dio_service.dart';
-import 'services/firebase_service.dart';
 import 'services/hive_service.dart';
 import 'services/location_service.dart';
 import 'services/logger_service.dart';
@@ -49,16 +47,6 @@ class InitialBinding extends Bindings {
       ..put(StorageService())
       ..put(LocationService())
       ..put(ConnectivityService());
-
-    print('Yo');
-
-    Get.put(
-      FirebaseService(
-        'countries',
-        fromMap: Country.fromMap,
-        toMap: (model) => model.toMap(),
-      ),
-    );
   }
 }
 
