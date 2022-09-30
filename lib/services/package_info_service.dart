@@ -3,12 +3,21 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import 'logger_service.dart';
 
+///
+/// Service which stores information regarding the application
+/// (app name, version, etc.)
+///
+
 class PackageInfoService extends GetxService {
+  ///
+  /// DEPENDENCIES
+  ///
+
   final logger = Get.find<LoggerService>();
 
-  /// ---------------------------
+  ///
   /// VARIABLES
-  /// ---------------------------
+  ///
 
   late final PackageInfo packageInfo;
 
@@ -17,9 +26,9 @@ class PackageInfoService extends GetxService {
   late final String version;
   late final String buildNumber;
 
-  /// ------------------------
+  ///
   /// INIT
-  /// ------------------------
+  ///
 
   @override
   Future<void> onInit() async {

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+///
 /// Widget which is put as a parent of each widget rendered in a [ListView]
+///
+
 class ListAnimation extends StatelessWidget {
   final int index;
   final Widget widget;

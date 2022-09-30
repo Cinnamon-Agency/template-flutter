@@ -5,18 +5,21 @@ import 'package:get/get.dart';
 import 'package:logger_flutter_fork/logger_flutter_fork.dart';
 import 'package:logger_fork/logger_fork.dart';
 
+///
 /// Service which gives access to `logger` and
 /// helper methods to easily log stuff to the console
+///
+
 class LoggerService extends GetxService {
-  /// ------------------------
+  ///
   /// VARIABLES
-  /// ------------------------
+  ///
 
   late final Logger logger;
 
-  /// ------------------------
+  ///
   /// INIT
-  /// ------------------------
+  ///
 
   @override
   void onInit() {
@@ -34,9 +37,9 @@ class LoggerService extends GetxService {
     LogConsole.init();
   }
 
-  /// ------------------------
+  ///
   /// METHODS
-  /// ------------------------
+  ///
 
   /// Verbose log, grey color
   void v(value) => logger.v(value);

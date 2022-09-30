@@ -7,6 +7,10 @@ import '../../constants/colors.dart';
 import '../../constants/text_styles.dart';
 import 'hello_controller.dart';
 
+///
+/// This is a screen in which we write widgets concerning [HelloScreen]
+///
+
 class HelloScreen extends GetView<HelloController> {
   @override
   Widget build(BuildContext context) => Scaffold(

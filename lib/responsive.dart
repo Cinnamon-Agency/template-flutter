@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+///
 /// Widget which gets wrapped around any content that needs to be responsive
 /// Has parameters for `mobile`, `tablet` and `desktop`
+///
+
 class Responsive extends StatelessWidget {
   final Widget mobile;
   final Widget? tablet;

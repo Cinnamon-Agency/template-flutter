@@ -3,6 +3,11 @@ import 'package:get_storage/get_storage.dart';
 
 import 'logger_service.dart';
 
+///
+/// Service used for local key-value storage
+/// Has methods for easier usage of storage functionality
+///
+
 class StorageService extends GetxService {
   final logger = Get.find<LoggerService>();
 

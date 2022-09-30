@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+///
 /// Widget which will animate the `child` with a scale effect
+///
+
 class ScaleAnimation extends StatelessWidget {
   final double begin;
   final double end;

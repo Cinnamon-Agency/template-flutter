@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+///
+/// Class used to localize the app
+/// Uses key-value pairs which are stored here
+/// and then used in widgets with `'someStringKey'.tr`
+///
+
 class Localization extends Translations {
   static Locale? get locale => Get.deviceLocale;
 

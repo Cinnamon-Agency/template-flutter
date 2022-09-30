@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+///
 /// [Column] widget which animates in a staggered fashion
+///
+
 class ColumnAnimation extends StatelessWidget {
   final List<Widget> children;
   final Duration animationDuration;

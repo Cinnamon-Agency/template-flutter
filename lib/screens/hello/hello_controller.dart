@@ -9,16 +9,23 @@ import '../../models/response_get_countries.dart';
 import '../../services/dio_service.dart';
 import '../../services/logger_service.dart';
 
+///
 /// This is a controller in which we write logic concerning [HelloScreen]
 /// The controller uses a [StateMixin]
 /// We pass a variable type to the mixin and then get access to the `change` method
 /// We can set different states with it and then render proper Widget depending on the state
+///
+
 class HelloController extends GetxController with StateMixin<List<Country>> {
+  ///
+  /// DEPENDENCIES
+  ///
+
   final logger = Get.find<LoggerService>();
 
-  /// ------------------------
+  ///
   /// INIT
-  /// ------------------------
+  ///
 
   @override
   Future<void> onInit() async {
@@ -26,9 +33,9 @@ class HelloController extends GetxController with StateMixin<List<Country>> {
     await fetchCountries();
   }
 
-  /// ------------------------
+  ///
   /// METHODS
-  /// ------------------------
+  ///
 
   /// Fetches coutries from an endpoint
   /// Usually using [DioService], but currently we'll fetch a local hardcoded JSON

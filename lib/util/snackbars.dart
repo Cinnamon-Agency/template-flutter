@@ -4,6 +4,11 @@ import 'package:get/get.dart';
 
 import '../constants/colors.dart';
 
+///
+/// Class which will trigger various snackbars
+/// Can be used throughout the app with `MySnackbars.showSomeSnackbar`
+///
+
 class MySnackbars {
   /// Snackbar shown if some success happens
   static void showSuccessSnackbar({

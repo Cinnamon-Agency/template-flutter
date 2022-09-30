@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+///
 /// Widget which will animate the `child` with a slide effect
+///
+
 class SlideAnimation extends StatelessWidget {
   final Offset begin;
   final Offset end;

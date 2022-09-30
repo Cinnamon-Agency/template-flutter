@@ -3,6 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
 
+///
+/// This is a class where all text styles are stored
+/// You can then reference them in code with `MyTextStyles.someTextStyle`
+///
+
 class MyTextStyles {
   static final country = GoogleFonts.roboto(
     color: MyColors.black,

@@ -10,7 +10,6 @@ analyzer:
 
 linter:
   rules:
-    - public_member_api_docs
     - avoid_empty_else
     - avoid_print
     - avoid_relative_lib_imports

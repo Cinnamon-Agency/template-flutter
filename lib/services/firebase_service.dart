@@ -1,8 +1,18 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 
-class FirebaseService<T> {
+///
+/// Service used for Firebase manipulation
+/// Has lots of helper methods which ease our Firebase use
+///
+
+class FirebaseService<T> extends GetxService {
+  ///
+  /// CONSTRUCTOR
+  ///
+
   final String collection;
   final T Function(Map<String, dynamic> map) fromMap;
   final Map<String, dynamic> Function(T model) toMap;
@@ -13,6 +23,10 @@ class FirebaseService<T> {
     required this.fromMap,
     required this.toMap,
   });
+
+  ///
+  /// METHODS
+  ///
 
   Future<T?> getSingle(String id) async {
     final documentSnapshot = await firestore.collection(collection).doc(id).get();

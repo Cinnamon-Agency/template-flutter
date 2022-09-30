@@ -2,9 +2,20 @@ import 'package:get/get.dart';
 
 import 'logger_service.dart';
 
-/// Trigers methods when the app goes in a different state
+///
+/// This is a service used to triger methods when the app goes in a different state
+///
+
 class AppLifecycleService extends FullLifeCycleController with FullLifeCycleMixin {
+  ///
+  /// DEPENDENCIES
+  ///
+
   final logger = Get.find<LoggerService>();
+
+  ///
+  /// METHODS
+  ///
 
   @override
   void onDetached() {

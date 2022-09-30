@@ -3,12 +3,21 @@ import 'package:get/get.dart';
 
 import 'logger_service.dart';
 
+///
+/// Service which stores information regarding the device
+/// which is running the app
+///
+
 class DeviceInfoService extends GetxService {
+  ///
+  /// DEPENDENCIES
+  ///
+
   final logger = Get.find<LoggerService>();
 
-  /// ------------------------
+  ///
   /// VARIABLES
-  /// ------------------------
+  ///
 
   late final deviceInfo = DeviceInfoPlugin();
 
@@ -16,9 +25,9 @@ class DeviceInfoService extends GetxService {
   IosDeviceInfo? iOSInfo;
   WebBrowserInfo? webBrowserInfo;
 
-  /// ------------------------
+  ///
   /// INIT
-  /// ------------------------
+  ///
 
   @override
   Future<void> onInit() async {
@@ -26,9 +35,9 @@ class DeviceInfoService extends GetxService {
     await initProperInfo();
   }
 
-  /// ------------------------
+  ///
   /// METHODS
-  /// ------------------------
+  ///
 
   /// Logs proper info depending on the platform running the app
   Future<void> initProperInfo() async {

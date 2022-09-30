@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+///
 /// Widget which will animate the `child` with a fade effect
+///
+
 class FadeAnimation extends StatelessWidget {
   final double begin;
   final double end;

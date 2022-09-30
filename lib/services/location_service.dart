@@ -4,12 +4,21 @@ import 'package:location/location.dart' as location;
 
 import 'logger_service.dart';
 
+///
+/// Service used for fetching location data
+/// Has methods for two plugins - `Location` and `Geolocator`
+///
+
 class LocationService extends GetxService {
+  ///
+  /// DEPENDENCIES
+  ///
+
   final logger = Get.find<LoggerService>();
 
-  /// ------------------------
+  ///
   /// METHODS
-  /// ------------------------
+  ///
 
   /// Get location with [Geolocator] package
   Future<geolocator.Position?> getLocationWithGeolocatorPackage() async {

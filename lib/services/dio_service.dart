@@ -17,19 +17,29 @@ enum HttpMethod {
   delete,
 }
 
+///
+/// Service which holds an instance of `Dio`
+/// Used for networking
+/// Contains methods that ease our networking logic
+///
+
 class DioService extends GetxService {
+  ///
+  /// DEPENDENCIES
+  ///
+
   final logger = Get.find<LoggerService>();
   final alice = Get.find<AliceService>().alice;
 
-  /// ------------------------
+  ///
   /// VARIABLES
-  /// ------------------------
+  ///
 
   late final Dio dio;
 
-  /// ------------------------
+  ///
   /// INIT
-  /// ------------------------
+  ///
 
   @override
   Future<void> onInit() async {
@@ -42,9 +52,9 @@ class DioService extends GetxService {
     )..interceptors.add(alice.getDioInterceptor());
   }
 
-  /// ------------------------
+  ///
   /// METHODS
-  /// ------------------------
+  ///
 
   Future<void> request<T>({
     required String endpoint,

@@ -9,12 +9,15 @@ import 'services/app_lifecycle_service.dart';
 import 'services/connectivity_service.dart';
 import 'services/device_info_service.dart';
 import 'services/dio_service.dart';
-import 'services/hive_service.dart';
 import 'services/location_service.dart';
 import 'services/logger_service.dart';
 import 'services/package_info_service.dart';
 import 'services/storage_service.dart';
 import 'theme.dart';
+
+///
+/// Function first called when running our project
+///
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,8 +36,11 @@ Future<void> main() async {
   runApp(CinnamonFlutterTemplateApp());
 }
 
+///
 /// This binding will get triggered once the app is running
 /// It will initialize all services we need throughout the app
+///
+
 class InitialBinding extends Bindings {
   @override
   void dependencies() {
@@ -42,13 +48,16 @@ class InitialBinding extends Bindings {
       ..put(AppLifecycleService())
       ..put(DeviceInfoService())
       ..put(DioService())
-      ..put(HiveService())
       ..put(PackageInfoService())
       ..put(StorageService())
       ..put(LocationService())
       ..put(ConnectivityService());
   }
 }
+
+///
+/// Starting point of our Flutter application
+///
 
 class CinnamonFlutterTemplateApp extends StatelessWidget {
   final logger = Get.find<LoggerService>();
