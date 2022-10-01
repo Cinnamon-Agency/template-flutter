@@ -11,15 +11,15 @@ import 'logger_service.dart';
 class StorageService extends GetxService {
   final logger = Get.find<LoggerService>();
 
-  /// ------------------------
+  ///
   /// VARIABLES
-  /// ------------------------
+  ///
 
   late final storageBox = GetStorage();
 
-  /// ------------------------
+  ///
   /// METHODS
-  /// ------------------------
+  ///
 
   /// Inserts some value in Storage
   Future<void> insertValue({required String key, required value}) async {
