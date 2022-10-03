@@ -27,6 +27,6 @@ flutter run
 ```
 
 ## **Blog post** <a name="blog"></a>
-Read more about our template in our [blog post](https://cinnamon.agency/blog/post/cinnamon_flutter_project_template).
+Read more about our template in our [blog post](https://cinnamon.agency/blog/post/cinnamon_flutter_template_overview).
 More blog posts will be written, going into more detail regarding the template.
 We will post links here once they're available.
