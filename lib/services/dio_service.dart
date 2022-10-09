@@ -59,12 +59,12 @@ class DioService extends GetxService {
   Future<void> request<T>({
     required String endpoint,
     required HttpMethod httpMethod,
-    required T Function(dynamic responseData) onSuccess,
+    required T Function(String responseData) onSuccess,
     Function(String error)? onError,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? parameters,
   }) async {
-    /// Encode passed data to `json`
-    final jsonData = jsonEncode(data);
+    /// Encode passed parameters to `json`
+    final jsonData = jsonEncode(parameters);
 
     try {
       /// Create `Options` with proper `headers` and other data
@@ -85,7 +85,7 @@ class DioService extends GetxService {
           response = await dio.get(
             endpoint,
             options: options,
-            queryParameters: data,
+            queryParameters: parameters,
           );
           break;
 
@@ -133,25 +133,29 @@ class DioService extends GetxService {
             ..e('--------------------\n');
       }
 
+      ///
       /// Response successfully fetched
+      ///
+
+      /// Create encoded `json`
+      final encodedJson = jsonEncode(response.data);
+
+      /// Log the successful response
       logger
         ..v('DIO SERVICE')
         ..v('--------------------')
         ..v('Response successfully fetched')
         ..v('Endpoint: $endpoint')
-        ..e('HTTP Method: ${httpMethod.name}')
+        ..v('HTTP Method: ${httpMethod.name}')
         ..v('Status code: ${response.statusCode}')
         ..v('Request:')
         ..logJson(jsonData)
         ..v('Response:')
-        ..logJson(response.data)
+        ..logJson(encodedJson)
         ..v('--------------------\n');
 
-      /// Decode passed response to `json`
-      final jsonResponse = jsonDecode(response.data);
-
       /// Return `onSuccess` and pass the response to it
-      onSuccess(jsonResponse);
+      onSuccess(encodedJson);
     } on DioError catch (e) {
       /// Error fetching response
       logger
