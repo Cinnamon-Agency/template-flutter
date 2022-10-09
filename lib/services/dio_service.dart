@@ -56,10 +56,10 @@ class DioService extends GetxService {
   /// METHODS
   ///
 
-  Future<void> request<T>({
+  Future<T?> request<T>({
     required String endpoint,
     required HttpMethod httpMethod,
-    required T Function(String responseData) onSuccess,
+    required Future<T> Function(dynamic responseData) onSuccess,
     Function(String error)? onError,
     Map<String, dynamic>? parameters,
   }) async {
@@ -137,9 +137,6 @@ class DioService extends GetxService {
       /// Response successfully fetched
       ///
 
-      /// Create encoded `json`
-      final encodedJson = jsonEncode(response.data);
-
       /// Log the successful response
       logger
         ..v('DIO SERVICE')
@@ -151,11 +148,11 @@ class DioService extends GetxService {
         ..v('Request:')
         ..logJson(jsonData)
         ..v('Response:')
-        ..logJson(encodedJson)
+        ..logJson(jsonEncode(response.data))
         ..v('--------------------\n');
 
       /// Return `onSuccess` and pass the response to it
-      onSuccess(encodedJson);
+      return onSuccess(response.data);
     } on DioError catch (e) {
       /// Error fetching response
       logger
@@ -187,5 +184,7 @@ class DioService extends GetxService {
         ..logJson(jsonData, isError: true)
         ..e('--------------------\n');
     }
+
+    return null;
   }
 }
