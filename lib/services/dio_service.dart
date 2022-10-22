@@ -43,7 +43,7 @@ class DioService extends GetxService {
   ///
 
   @override
-  Future<void> onInit() async {
+  void onInit() {
     super.onInit();
 
     dio = Dio(

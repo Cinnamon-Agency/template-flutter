@@ -12,6 +12,10 @@ class LoggerInterceptor implements Interceptor {
 
   final logger = Get.find<LoggerService>();
 
+  ///
+  /// METHODS
+  ///
+
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     final endpoint = '${err.requestOptions.baseUrl}${err.requestOptions.path}';
