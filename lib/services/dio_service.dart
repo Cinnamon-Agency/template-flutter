@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart' hide FormData, Response;
 
+import '../util/logger_interceptor.dart';
 import 'alice_service.dart';
 import 'logger_service.dart';
 
@@ -49,7 +50,9 @@ class DioService extends GetxService {
       BaseOptions(
         connectTimeout: kDebugMode ? 30000 : 5000,
       ),
-    )..interceptors.add(alice.getDioInterceptor());
+    )
+      ..interceptors.add(LoggerInterceptor())
+      ..interceptors.add(alice.getDioInterceptor());
   }
 
   ///
@@ -137,52 +140,24 @@ class DioService extends GetxService {
       /// Response successfully fetched
       ///
 
-      /// Log the successful response
-      logger
-        ..v('DIO SERVICE')
-        ..v('--------------------')
-        ..v('Response successfully fetched')
-        ..v('Endpoint: $endpoint')
-        ..v('HTTP Method: ${httpMethod.name}')
-        ..v('Status code: ${response.statusCode}')
-        ..v('Request:')
-        ..logJson(jsonData)
-        ..v('Response:')
-        ..logJson(jsonEncode(response.data))
-        ..v('--------------------\n');
-
       /// Return `onSuccess` and pass the response to it
       return onSuccess(response.data);
-    } on DioError catch (e) {
-      /// Error fetching response
-      logger
-        ..e('DIO SERVICE')
-        ..e('--------------------')
-        ..e('Error fetching response')
-        ..e('Endpoint: $endpoint')
-        ..e('HTTP Method: ${httpMethod.name}')
-        ..e('Error: ${e.message}')
-        ..e('ResponseError: ${e.response?.data}')
-        ..e('Request:')
-        ..logJson(jsonData, isError: true)
-        ..e('--------------------\n');
+    }
 
+    ///
+    /// Error fetching response
+    ///
+
+    on DioError catch (e) {
       if (onError != null) {
         /// Return `onError` and pass error to it
         onError('$e');
       }
     } catch (e) {
-      /// Generic error
-      logger
-        ..e('DIO SERVICE')
-        ..e('--------------------')
-        ..e('Generic error')
-        ..e('Endpoint: $endpoint')
-        ..e('HTTP Method: ${httpMethod.name}')
-        ..e('Error: $e')
-        ..e('Request:')
-        ..logJson(jsonData, isError: true)
-        ..e('--------------------\n');
+      if (onError != null) {
+        /// Return `onError` and pass error to it
+        onError('$e');
+      }
     }
 
     return null;
